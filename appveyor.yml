@@ -1,0 +1,12 @@
+init:
+  - git config --global core.autocrlf true
+before_build:
+  - nuget restore
+build:
+  project: IncrementalBuild.sln
+clone_depth: 1
+os: Visual Studio 2017
+test: on
+deploy: off
+#on_finish:
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
